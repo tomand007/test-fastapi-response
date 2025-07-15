@@ -8,4 +8,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY test_client.py .
 
-CMD ["pytest", "test_client.py", "-v"]
+CMD ["sh", "-c", "pytest test_client.py -v --tb=short 2>&1 | tee /app/logs/pytest_trace.log"]
